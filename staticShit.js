@@ -4,7 +4,7 @@ const mongoose = require("mongoose")
 const staticShit = {
   routerPath: path.join(__dirname, "router"),
   publicPath: path.join(__dirname, "public"),
-  mongoCluster0: "mongodb+srv://Radjab:kamal123@cluster0.ftj88.mongodb.net/zapiski?retryWrites=true&w=majority",
+  mongoCluster0: "Your Database link",
 
   weekDays: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
 
