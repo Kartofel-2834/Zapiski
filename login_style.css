@@ -1,0 +1,145 @@
+*{
+  margin: 0;
+  font-family: 'Fira Sans Condensed', sans-serif;
+}
+
+*::-webkit-scrollbar{
+  -webkit-appearance: none;
+  width: 10px;
+  padding: 10px;
+}
+
+*::-webkit-scrollbar-thumb {
+  -webkit-appearance: none;
+  border-radius: 10px;
+  background-color: #43bd77;
+  transition: 0.15s linear;
+}
+
+*::-webkit-scrollbar-thumb:active {
+  background-color: #43bd77cf;
+}
+
+*::-webkit-scrollbar-track-piece{
+  background-color: #f5f5f5;
+}
+
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+a, h1, p{ cursor: default }
+
+h1{
+  width: 100%;
+  text-align: center;
+  font-size: 3.5em;
+}
+
+p{ font-size: 2.5em; }
+
+a{
+  appearance: none;
+  text-decoration: none;
+  font-weight: bold;
+  color: #959393;
+  margin-top: 15px;
+  transition: 0.15s linear;
+}
+
+a:hover{
+  color:#43bd77;
+}
+
+img{
+  width: 2.5em;
+  height: 2.5em;
+  margin: 3px 0 0 1em;
+  cursor: pointer;
+  transition: 0.15s linear;
+}
+
+img:hover{
+  transform: scale(1.1);
+}
+
+input{
+  appearance: none;
+  width: 100%;
+  font-size: 1.7em;
+  padding: 0.4em;
+  border: 2px solid #959393cc;
+  transition: 0.2s linear;
+}
+
+input:focus{
+  outline: none;
+  border: 2px solid #43bd77;
+}
+
+button{
+  margin-top: 1.5em;
+  font-size: 1.7em;
+  padding: 0.5em 1.5em;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: 2px solid #43bd77;
+  background-color: #43bd77;
+  cursor: pointer;
+  color:white;
+  transition: 0.15s linear;
+}
+
+button:hover{
+  background-color: #3dab6c;
+  border: 2px solid #3dab6c;
+}
+
+button:active{
+  border: 2px solid #43bd77;
+  color: #43bd77;
+  background-color: white;
+}
+
+.flex_center{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.data_text_input{
+  margin: 25px 0 40px 0;
+}
+
+.reg_data_input{
+  width: 50%;
+}
+
+.input_frame div{
+  display: flex;
+  align-items: center;
+}
+
+.alerter{
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+  font-size: 1.9em;
+  color: white;
+  background-color: #e32b2b;
+  text-align: center;
+  bottom: 0;
+  padding: 0.7em 0;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s linear;
+  opacity: 0;
+  display: none;
+}
+
+.error_value{
+  border-color: #e32b2b;
+}

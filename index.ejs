@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <title>Zapiski</title>
+    <meta charset="utf-8">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/file?name=styles\\style.css">
+  </head>
+
+  <body>
+
+    <menu id="noteMakerMenu" class="note_maker_menu hide_menu">
+      <div class="menu_icon vertical_menu_icon" id="backToLinkFromNote"></div>
+      <div class="menu_icon vertical_menu_icon" id="saveButton"></div>
+    </menu>
+
+    <menu id="noteLinkMenu" class="" >
+      <div class="menu_icon" id="newNoteButton"></div>
+
+      <div class="menu_icon hide hide_fiction" id="backToLinkButton"></div>
+
+      <div class="search_note_inner">
+        <input type="text" class="search_input" name="" value="" id="searchInput">
+        <div class="menu_icon search_icon" id="searchIcon"></div>
+      </div>
+
+      <div class="menu_icon trash_button" id="trashButton"></div>
+    </menu>
+
+    <div class="note_tags_edit_window_inner hide_opacity hide" id="noteTagsEditWindowInner">
+      <input type="text" class="hide" id="tagNoteId" value="">
+
+      <div class="note_tags_edit_window" id="noteTagsEditWindow">
+        <input type="text" class="search_input" id="searchTagInput" value="" placeholder="Название ярлыка">
+
+        <div class="tag_link" id="tagLinkInner">
+          <div class="tag_choice add_tag_choice hide" id="addTagChoiceInner">Создать тег ""</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="note_book_inner hide_opacity hide" id="noteBookInner">
+      <input type="text" class="note_title_input" id="noteTitleInput" value="" placeholder="Название">
+      <input type="text" id="currentNoteId" class="hide" value="">
+      <textarea id="noteBook" rows="8" cols="80" spellcheck="false"></textarea>
+    </div>
+
+    <div class="note_link" id="noteLink">
+      <div class="top_nav">
+        <h1 class="link_header">Your notes: </h1>
+
+        <button type="button" class="hide_opacity hide" name="button" id="checkAllButton">Check all</button>
+
+      </div>
+
+
+      <ol>
+        <% noteLink.forEach( (note)=>{ %>
+          <li>
+            <input type="text" class="hide" name="noteId" value="<%= note._id %>">
+
+            <div class="note_link_content">
+              <div>
+                <h2 name="noteTitle"> <%= note.title %> </h2>
+                <h3 class="note_date">Last update: <%= note.date %></h3>
+              </div>
+
+              <div class="note_link_button_inner grid_nakladka">
+
+                <div class="check_box_label grid_nakladka_element" name="checkBoxLabel">
+                  <div class="check_mark check_mark_hide" name="checkMark"></div>
+                  <input type="checkbox" class="hide" name="checkForDelete" value="">
+                </div>
+
+                <div class="menu_icon tag_icon grid_nakladka_element" id="tagButton" name="tagButton"></div>
+              </div>
+            </div>
+
+          </li>
+        <% }); %>
+      </ol>
+
+    </div>
+
+
+    <script type="module" src="file?name=scripts//index.js"></script>
+  </body>
+</html>

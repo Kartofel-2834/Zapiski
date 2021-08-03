@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:wght@300&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/file?name=styles\\login_style.css">
+    <title>Zapiski</title>
+
+  </head>
+  <body class="center_body">
+    <form class="reg_data_input" action="/signIn" method="post">
+      <div class="input_frame">
+        <p>Login</p>
+        <input type="text" class="data_text_input" name="login" value="">
+      </div>
+
+      <div class="input_frame">
+        <div>
+          <p>Password</p>
+          <img src="/file?name=icons\\eye_disable.png" class="not_active" alt="" id="eye">
+        </div>
+        <input type="password" class="data_text_input" name="password" value="">
+      </div>
+
+      <div class="flex_center">
+        <button type="submit">log in</button>
+      </div>
+
+      <div class="flex_center">
+        <a href="/registration">Registration</a>
+      </div>
+
+
+    </form>
+
+    <div class="alerter" id="alerter"><%= alert %></div>
+
+    <script type="module" >
+      let passwordInp = document.getElementsByName('password')[0]
+      let eye = document.getElementById('eye')
+
+      eye.onclick = function(){
+        let opt = ["active", "not_active", "/file?name=icons\\eye_disable.png", "password"]
+
+        if( this.classList.contains("not_active") ){
+          opt = ["not_active", "active", "/file?name=icons\\eye_able.png", "text"]
+        }
+
+        this.classList.remove( opt[0] );
+        this.classList.add( opt[1] );
+        this.src = opt[2]
+        passwordInp.type = opt[3]
+      }
+    </script>
+
+    <% if (alert.length > 0) { %>
+      <script type="module">
+        import Alerter from '/file?name=scripts\\alerter.js';
+        let alerter = new Alerter( document.getElementById("alerter") )
+        alerter.alert()
+      </script>
+    <% } %>
+
+  </body>
+</html>

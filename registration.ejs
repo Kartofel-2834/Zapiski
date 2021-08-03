@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:wght@300&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/file?name=styles\\login_style.css">
+    <title>Zapiski</title>
+
+  </head>
+  <body style="padding: 50px 0">
+
+    <form class="reg_data_input" action="/registration" method="post">
+      <h1>Registration</h1>
+
+      <div class="input_frame" style="margin-top:60px">
+        <p>Choose login</p>
+        <input type="text" class="data_text_input" name="login" value="">
+      </div>
+
+      <div class="input_frame">
+        <div>
+          <p>Choose password</p>
+          <img src="/file?name=icons\\eye_disable.png" class="not_active" alt="" id="eye">
+        </div>
+        <input type="password" class="data_text_input" name="password" value="">
+      </div>
+
+      <div class="flex_center">
+        <button type="button" id="submitBtn">create account</button>
+      </div>
+
+    </form>
+
+    <div class="alerter" id="alerter"><%= alert %></div>
+
+    <script type="module">
+      let passwordInp = document.getElementsByName('password')[0]
+      let eye = document.getElementById('eye')
+
+      eye.onclick = function(){
+        let opt = ["active", "not_active", "/file?name=icons\\eye_disable.png", "password"]
+
+        if( this.classList.contains("not_active") ){
+          opt = ["not_active", "active", "/file?name=icons\\eye_able.png", "text"]
+        }
+
+        this.classList.remove( opt[0] );
+        this.classList.add( opt[1] );
+        this.src = opt[2]
+        passwordInp.type = opt[3]
+      }
+    </script>
+    <script type="module" src="/file?name=scripts\\registration_script.js"></script>
+    <% if (alert.length > 0) { %>
+      <script type="module">
+        import Alerter from '/file?name=scripts\\alerter.js';
+        let alerter = new Alerter( document.getElementById("alerter") )
+        alerter.alert()
+      </script>
+    <% } %>
+
+  </body>
+</html>

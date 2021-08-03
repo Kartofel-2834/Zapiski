@@ -1,0 +1,487 @@
+*{
+  margin: 0;
+  font-family: 'Fira Sans Condensed', sans-serif;
+}
+
+*::-webkit-scrollbar{
+  -webkit-appearance: none;
+  width: 12px;
+  cursor: pointer;
+}
+
+*::-webkit-scrollbar{
+  cursor: pointer;
+}
+
+*::-webkit-scrollbar-thumb {
+  -webkit-appearance: none;
+  border-radius: 10px;
+  background-color: #b6b6b6;
+}
+
+*::-webkit-scrollbar-thumb:active {
+  background-color: #b6b6b6cf;
+}
+
+*::-webkit-scrollbar-track-piece{
+  background-color: #e7e7e7;
+}
+
+*::selection{
+  background-color: #1299d4b3;
+  color: white;
+}
+
+textarea, input{ caret-color: #14aef1 }
+
+textarea{
+  position: fixed;
+  overflow-y: scroll;
+  margin-left: 3.5rem;
+  margin-top: 5em;
+  margin-bottom: 1.5rem;
+  padding: 0 5%;
+  font-size: 1.5rem;
+  resize: none;
+  appearance: none;
+  height: -webkit-fill-available;
+  width: -webkit-fill-available;
+  border: none;
+}
+
+textarea::-webkit-scrollbar-thumb:active{
+  background-color: #1299d4b3;
+}
+
+textarea:focus, #mainNoteMaker{
+  outline: none;
+  box-shadow: none;
+}
+
+li, h2, h3{ user-select: none }
+
+h1, h2, h3 { cursor: default }
+
+h1{ font-size: 2.5rem }
+
+h2{ font-size: 1.8rem }
+
+h3{
+  font-size: 1rem;
+  color: #808080d1;
+}
+
+.body_overflow{
+  overflow: hidden;
+  width: 91vw;
+  height: calc(100vh - 5rem);
+}
+
+body{
+  display: flex;
+  max-height: 100%;
+}
+
+menu{
+  appearance:none;
+  position: fixed;
+  z-index: 1000;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
+  width: -webkit-fill-available;
+  height: fit-content;
+  background-color: #14aef1;
+  padding: 0.2em 4em;
+  transition: transform 0.2s linear;
+}
+
+ol{
+  margin-top: 4em;
+  counter-reset: myCounter;
+  width: 100%;
+  padding: 0;
+}
+
+li{
+  display: flex;
+  margin-top: 2em;
+  align-items: center;
+  width: -webkit-fill-available;
+  display: flex;
+  list-style: none;
+  padding: 2em 1em;
+  border-radius: 8px;
+  border: 2px solid #b6b6b6d1;
+  transition: 0.15s linear;
+}
+
+li:before {
+  transition: 0.15s linear;
+  counter-increment: myCounter;
+  content:counter(myCounter);
+  color: white;
+  background-color: #1299d4b3;
+  font-weight: bold;
+  display: inline-block;
+  text-align: center;
+  margin: 5px 10px;
+  line-height: 40px;
+  width: 40px;
+  height: 40px;
+}
+
+li:hover{
+  box-shadow: 0px 2px 11px 2px rgb(34 60 80 / 20%);
+  transform: scale(1.01);
+}
+
+button{
+  appearance: none;
+  cursor: pointer;
+  font-size: 1.5em;
+  font-weight: bold;
+  padding: 5px 17px;
+  border:2px solid white;
+  color: #1396d0;
+  background-color: white;
+  transition: 0.15s linear;
+}
+
+button:hover{
+  color: #14aef1;
+  border-bottom: 2px solid #14aef1;
+}
+
+button:active, .check_all_btn_active{
+  border: 2px solid #14aef1;
+  border-radius: 20px;
+  background-color: #14aef1;
+  color: white;
+}
+
+.note_tags_edit_window_inner{
+  transition: 0.15s linear;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  background-color: #00000070;
+}
+
+.note_tags_edit_window{
+  background-color: #fcf9f9;
+  width: 60%;
+  height: 80%;
+  background-color: white;
+}
+
+.tag_link{
+  width: 100%;
+  margin-top: 1rem;
+  max-height: 90%;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.tag_choice{
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: default;
+  background-color: #80808047;
+  border-radius: 5px;
+  transition: 0.15s linear;
+  font-weight: bold;
+  font-size: 1.3em;
+  padding: 0.7em 2.3em;
+  margin: 0 2em;
+}
+
+#tagChbLabel{
+  margin: 0;
+  border-color: black;
+}
+
+#tagChbMark{
+  width: 1em;
+  height: 1em;
+  background-image: url("/file?name=icons\\check_black.svg");
+}
+
+.add_tag_choice{ cursor: pointer }
+
+.add_tag_choice::before{ content: "" }
+
+.add_tag_choice:hover{
+  background-color: #8080803b;
+}
+
+.add_tag_choice{}
+
+.grid_nakladka{
+  display:grid;
+  grid-auto-rows: 100%;
+  grid-auto-columns: 100%;
+}
+
+.grid_nakladka_element{
+  grid-row: 1 / 1;
+  grid-column: 1 / 1;
+}
+
+.check_all_btn_active:hover{ color: white }
+
+.note_maker_menu{
+  position: fixed;
+  width: fit-content;
+  bottom: auto;
+  left: 0;
+  padding: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+}
+
+.hide{ display: none }
+
+.hide_menu{ transform: translate(-100%, 0%) }
+
+.hide_menu_vertical{ transform: translate(0%, 100%) }
+
+.hide_opacity{ opacity: 0 }
+
+.hide_scale{ transform: scale(0) }
+
+.vertical_menu_icon{ margin-top: 1rem }
+.vertical_menu_icon:first-child{ margin-top: 0.2rem }
+
+.menu_icon{
+  border-radius: 6px;
+  transform: scale(1.1);
+  transition: 0.1s linear;
+  cursor: pointer;
+  width: 3.5em;
+  height: 3.5em;
+}
+
+.menu_icon::before{
+  transform: scale(0.5);
+  opacity: 0;
+  transition: 0.1s ease-in-out;
+  content: "";
+  z-index: -100;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  border-radius: 100%;
+}
+
+.menu_icon:active::before{
+  opacity: 0.45;
+  transform: scale(0.85);
+}
+
+
+.hide_fiction{
+  transition: transform 0.1s linear;
+  transform: scale(0)
+}
+
+.search_note_inner{
+  border-right: 2px solid white;
+  border-left: 2px solid white;
+  display: flex;
+  align-items: center;
+  width: calc(100% - 15em);
+}
+
+.search_input{
+  color: white;
+  caret-color: white;
+  background-color: inherit;
+  font-size: 1.7rem;
+  font-weight: bold;
+  text-align: center;
+  border: none;
+  border-bottom: 2px solid white;
+  outline: none;
+  width: -webkit-fill-available;
+  margin-left: 1em;
+  cursor: default;
+}
+
+#searchIcon{
+  transition: 0.1s linear;
+  border-radius: 150%;
+  padding: 0 0.25rem;
+  margin: 0 1rem;
+  background: no-repeat center/40%;
+  background-image: url("/file?name=icons\\search.svg")
+}
+
+#searchIcon:active{
+  background-color: white;
+  background-image: url("/file?name=icons\\search_active.svg")
+}
+
+#saveButton{
+  background: no-repeat center/42%;
+  background-image: url("/file?name=icons\\save_icon.svg")
+}
+
+#newNoteButton{
+  transition: 0.1s linear;
+  background: no-repeat center/60%;
+  background-image: url("/file?name=icons\\plus.svg")
+}
+
+#backToLinkButton, #backToLinkFromNote{
+  background: no-repeat center/40%;
+  background-image: url("/file?name=icons\\back.svg")
+}
+
+#tagButton{
+  width: 4rem;
+  height: 4rem;
+  background: no-repeat center/40%;
+  background-image: url("/file?name=icons\\tag.svg")
+}
+
+#tagButton::before{ background-color: #14aef1 }
+
+#searchTagInput{
+  border-bottom: 2px solid #1299d4b3;
+  caret-color: #1299d4b3;
+  text-align: left;
+  margin: 0;
+  padding: 0.7rem 3rem;
+  color: black;
+}
+
+.tag_icon{ transform: scale(-1, 1) }
+
+.trash_button{
+  transition: 0.15s linear;
+  background: no-repeat center/55%;
+  background-image: url("/file?name=icons\\delete.svg")
+}
+
+.trash_button_active{
+  background-color: white;
+  background-image: url("/file?name=icons\\delete_active.svg")
+}
+
+.trash_button_active:hover, .trash_button_active:active{
+  background-color: red;
+  background-image: url("/file?name=icons\\delete.svg")
+}
+
+.note_book_inner{
+  width: -webkit-fill-available;
+  transition: 0.2s linear;
+}
+
+.note_title_input{
+  position: fixed;
+  width: 100%;
+  appearance: none;
+  margin-left: 3.5rem;
+  padding: 0.3em 0 0.3em 0.8em;
+  border: none;
+  transition: 0.2s linear;
+  color: #1c1c1c;
+  outline: none;
+  font-size: 2.2rem;
+  background-color: #eeeaeaa1;
+  border-bottom: 4px solid #eeeaeaa1;
+}
+
+.title_error{ border-color: #e32b2b }
+.title_error::placeholder { color: #e32b2b }
+
+.note_link{
+  transition: 0.25s linear;
+  width: 100%;
+  margin: 1.5em 3em 6em 3em
+}
+
+.top_nav{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.note_link_content{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 1.5em;
+}
+
+.note_date{ margin-top: 0.4em }
+
+.note_link_button_inner{
+  align-items: center;
+}
+
+.check_box_label{
+  margin: 0 auto;
+  transform: scale(0);
+  transition: 0.15s linear;
+  border: 3px solid #b6b6b6;
+  border-radius: 8%;
+  width: fit-content;
+  height: fit-content;
+}
+
+.check_box_label_works{ transform: scale(1) }
+
+
+.check_mark{
+  transition: 0.15s linear;
+  transform: scale(0);
+  width: 1.5em;
+  height: 1.5em;
+  background: no-repeat center/70%;
+  background-image: url("/file?name=icons\\check.svg")
+}
+
+.check_mark_active{ transform: scale(1) }
+
+.delete_mode{ cursor: pointer }
+
+.delete_mode::before{
+  background-color: #b6b6b6
+}
+
+.delete_mode:hover{
+  transform: none;
+  box-shadow: none;
+}
+
+.delete_mode_selected{
+  transform: scale(1.01);
+  border-color: #14aef1;
+}
+
+.delete_mode_selected::before{
+  border-radius: 8%;
+  background-color: #14aef1;
+}
+
+.delete_mode_selected:hover{
+  transform: scale(1.01);
+}
+
+.check_box_label_active{ border-color: #14aef1 }
